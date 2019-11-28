@@ -8,14 +8,16 @@
         <div id="app">
             <navbar id="navbar" v-bind:title="mainTitle"></navbar>
             <app-view id="app-view">
-                <app-component id="app-component1">
-                    <toggle-button></toggle-button>
-                </app-component>
-                <app-component id="app-component2">
-                    <counter-button></counter-button>
-                    <counter-button></counter-button>
-                    <counter-button></counter-button>
-                </app-component>
+                <template slot-scope="{flag, toggleFunction}">
+                    <app-component id="app-component1">
+                        <toggle-button :flag="flag" :toggle="toggleFunction"></toggle-button>
+                    </app-component>
+                    <app-component id="app-component2">
+                        <counter-button :flag="flag"></counter-button>
+                        <counter-button :flag="flag"></counter-button>
+                        <counter-button :flag="flag"></counter-button>
+                    </app-component>
+                </template>
             </app-view>
         </div>
         <script src="main.js"></script>

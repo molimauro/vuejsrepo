@@ -6,7 +6,17 @@ Vue.component('navbar', {
 })
 
 Vue.component('app-view', {
-    template: "<div><slot></slot></div>"
+    data: function () {
+        return {
+            buttonsDisabled: false,
+        }
+    },
+    template: "<div><slot :flag='buttonsDisabled' :toggleFunction='toggleFunction'></slot></div>",
+    methods: {
+        toggleFunction: function () {
+            this.buttonsDisabled = !this.buttonsDisabled
+        }
+    }
 })
 
 Vue.component('app-component', {
@@ -14,21 +24,28 @@ Vue.component('app-component', {
 })
 
 Vue.component('toggle-button', {
-    template: "<button>Toggle</button>"
+    props: {
+        flag: Boolean,
+        toggle: Function
+    },
+    template: "<button @click='toggle'>Toggle {{flag ? 'ON' : 'OFF'}}</button>"
 })
 
 Vue.component('counter-button', {
+    props: {
+        flag: Boolean
+    },
     data: function () {
         return {
             count: 0
         }
     },
-    template: "<button @click='count++'>You clicked {{count}} times.</button>"
+    template: "<button @click='count++' :disabled='flag'>You clicked {{count}} times.</button>"
 })
 
 var app = new Vue({
     el: "#app",
     data: {
-        mainTitle: "VueJs Project"
+        mainTitle: "VueJs Project",
     }
 })
