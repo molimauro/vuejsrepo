@@ -19,6 +19,14 @@
     justify-content: space-evenly;
 }
 
+#app-view.gray {
+    background-color: gray;
+}
+
+#app-view.red {
+    background-color: red;
+}
+
 #app-component1 {
     width: 30%;
     border: 2px solid black;

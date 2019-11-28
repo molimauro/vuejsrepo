@@ -6,7 +6,7 @@
 
     <body>
         <div id="app">
-            <navbar id="navbar" v-bind:title="mainTitle"></navbar>
+            <navbar id="navbar" :title="mainTitle"></navbar>
             <app-view id="app-view">
                 <template slot-scope="{flag, toggleFunction}">
                     <app-component id="app-component1">

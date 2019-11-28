@@ -11,7 +11,7 @@ Vue.component('app-view', {
             buttonsDisabled: false,
         }
     },
-    template: "<div><slot :flag='buttonsDisabled' :toggleFunction='toggleFunction'></slot></div>",
+    template: "<div :class='{gray: buttonsDisabled, red: !buttonsDisabled}'><slot :flag='buttonsDisabled' :toggleFunction='toggleFunction'></slot></div>",
     methods: {
         toggleFunction: function () {
             this.buttonsDisabled = !this.buttonsDisabled
