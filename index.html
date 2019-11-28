@@ -7,6 +7,16 @@
     <body>
         <div id="app">
             <navbar id="navbar" v-bind:title="mainTitle"></navbar>
+            <app-view id="app-view">
+                <app-component id="app-component1">
+                    <toggle-button></toggle-button>
+                </app-component>
+                <app-component id="app-component2">
+                    <counter-button></counter-button>
+                    <counter-button></counter-button>
+                    <counter-button></counter-button>
+                </app-component>
+            </app-view>
         </div>
         <script src="main.js"></script>
     </body>
